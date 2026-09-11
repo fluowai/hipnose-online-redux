@@ -72,7 +72,7 @@ export function Temas() {
       />
       <div className="mt-12 grid gap-5 sm:grid-cols-2">
         {temas.map((t, i) => (
-          <Card key={t.title} Icon={temaIcons[i]} title={t.title} text={t.text} />
+          <Card key={t.title} Icon={temaIcons[i]!} title={t.title} text={t.text} />
         ))}
       </div>
     </section>
@@ -90,7 +90,7 @@ export function Abordagem() {
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {abordagem.map((t, i) => (
-            <Card key={t.title} Icon={abordagemIcons[i]} title={t.title} text={t.text} />
+            <Card key={t.title} Icon={abordagemIcons[i]!} title={t.title} text={t.text} />
           ))}
         </div>
       </div>
@@ -107,7 +107,7 @@ export function Online() {
       />
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {online.map((t, i) => (
-          <Card key={t.title} Icon={onlineIcons[i]} title={t.title} text={t.text} />
+          <Card key={t.title} Icon={onlineIcons[i]!} title={t.title} text={t.text} />
         ))}
       </div>
     </section>
