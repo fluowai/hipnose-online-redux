@@ -1,24 +1,52 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import {
+  Abordagem,
+  Depoimentos,
+  Online,
+  Passos,
+  Sobre,
+  Temas,
+} from "@/components/site/Sections";
+import { ContactForm } from "@/components/site/ContactForm";
+import { Faq } from "@/components/site/Faq";
+import { Footer } from "@/components/site/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Ton Lucas | Hipnose e psicologia online";
+const description =
+  "Hipnose e psicologia em sessões individuais online com Ton Lucas. Ansiedade, emagrecimento, vícios e medos, com atendimento sigiloso para todo o Brasil e exterior.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen scroll-smooth bg-background font-sans text-foreground antialiased">
+      <Header />
+      <main>
+        <Hero />
+        <Temas />
+        <Abordagem />
+        <Online />
+        <Sobre />
+        <Passos />
+        <Depoimentos />
+        <ContactForm />
+        <Faq />
+      </main>
+      <Footer />
     </div>
   );
 }
